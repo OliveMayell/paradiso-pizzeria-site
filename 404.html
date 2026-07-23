@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ristorante Pizzeria Paradiso — Te Anau</title>
+<meta name="robots" content="noindex">
+<script>
+  // Map old website URLs to sections of the new one-page site
+  (function () {
+    var path = window.location.pathname.toLowerCase();
+    var map = [
+      [/our-food|menu|food/, '#menu'],
+      [/drinks|wine|beer/, '#menu'],
+      [/reservation|booking|book/, '#reserve'],
+      [/contact|find|hours|location/, '#visit'],
+      [/gallery|photo|about|story|host/, '#story']
+    ];
+    var target = '/';
+    for (var i = 0; i < map.length; i++) {
+      if (map[i][0].test(path)) { target = '/' + map[i][1]; break; }
+    }
+    window.location.replace(target);
+  })();
+</script>
+<meta http-equiv="refresh" content="0;url=/">
+<style>
+  body{font-family:Georgia,serif;background:#faf6ee;color:#221e18;display:flex;min-height:100vh;align-items:center;justify-content:center;text-align:center;margin:0}
+</style>
+</head>
+<body>
+<p>Taking you to <a href="/">Ristorante Pizzeria Paradiso</a>…</p>
+</body>
+</html>
