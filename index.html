@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ristorante Pizzeria Paradiso — Wood-Fired Italian, Te Anau</title>
+<meta name="description" content="Ristorante Pizzeria Paradiso (formerly Da Toni) — authentic Italian wood-fired pizza and cuisine in Te Anau, Fiordland. Since 2011.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf6ee;
+    --cream-2:#f3ecdf;
+    --ink:#221e18;
+    --ink-soft:#5c554b;
+    --basil:#33502f;
+    --basil-deep:#24391f;
+    --tomato:#b23a2a;
+    --gold:#c9a35c;
+    --line:#e2d9c8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;font-weight:300}
+  h1,h2,h3{font-family:'Playfair Display',serif;font-weight:600;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+
+  /* ---------- Nav ---------- */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(250,246,238,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-inner{max-width:1100px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;letter-spacing:.04em}
+  .brand span{color:var(--tomato)}
+  .brand small{display:block;font-family:'Inter',sans-serif;font-size:.6rem;font-weight:500;letter-spacing:.35em;color:var(--ink-soft);text-transform:uppercase}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+  .nav-links a:hover{color:var(--tomato)}
+  .btn{display:inline-block;padding:12px 26px;border-radius:2px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;transition:all .25s ease;border:1px solid transparent}
+  .btn-red{background:var(--tomato);color:#fff}
+  .btn-red:hover{background:#963022;color:#fff}
+  .btn-ghost{border-color:rgba(255,255,255,.55);color:#fff}
+  .btn-ghost:hover{background:#fff;color:var(--ink)}
+  .nav-links .btn{padding:9px 18px}
+  .menu-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink)}
+
+  /* ---------- Hero ---------- */
+  header{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;color:#fff;padding:120px 24px 80px;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(178,58,42,.28), transparent 55%),
+      radial-gradient(ellipse at 75% 80%, rgba(51,80,47,.35), transparent 55%),
+      linear-gradient(180deg,#161310 0%, #221c15 60%, #2a231a 100%);}
+  header::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.045) 1px, transparent 1px);background-size:22px 22px;pointer-events:none}
+  .hero-kicker{font-size:.72rem;letter-spacing:.45em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;font-weight:500}
+  header h1{font-size:clamp(2.6rem,7vw,5rem);max-width:900px;font-weight:700}
+  header h1 em{font-style:italic;color:var(--gold)}
+  .hero-sub{margin-top:22px;max-width:560px;color:rgba(255,255,255,.78);font-size:1.02rem}
+  .hero-ctas{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .hero-flag{margin-top:56px;display:flex;gap:0;height:3px;width:120px;border-radius:2px;overflow:hidden}
+  .hero-flag i{flex:1}
+  .hero-flag i:nth-child(1){background:#3e7a3a}.hero-flag i:nth-child(2){background:#f5f1e8}.hero-flag i:nth-child(3){background:#c33b2a}
+
+  /* ---------- Sections ---------- */
+  section{padding:96px 0}
+  .kicker{font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--tomato);font-weight:600;margin-bottom:14px}
+  .section-title{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:18px}
+  .lead{color:var(--ink-soft);max-width:640px}
+
+  /* Story */
+  .story-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+  .story-cards{display:grid;gap:18px}
+  .story-card{background:#fff;border:1px solid var(--line);border-radius:4px;padding:26px 28px}
+  .story-card h3{font-size:1.15rem;margin-bottom:8px}
+  .story-card h3::before{content:"";display:inline-block;width:22px;height:2px;background:var(--gold);margin-right:10px;vertical-align:middle}
+  .story-card p{font-size:.92rem;color:var(--ink-soft)}
+  .since{display:inline-flex;align-items:baseline;gap:10px;margin:26px 0 8px}
+  .since b{font-family:'Playfair Display',serif;font-size:3rem;color:var(--basil);font-weight:700}
+  .since span{font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-soft)}
+
+  /* Menu */
+  #menu{background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin:34px 0 44px}
+  .tab{padding:10px 20px;border:1px solid var(--line);background:#fff;border-radius:999px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;cursor:pointer;transition:all .2s;color:var(--ink-soft)}
+  .tab:hover{border-color:var(--basil);color:var(--basil)}
+  .tab.active{background:var(--basil);border-color:var(--basil);color:#fff}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .menu-note{font-size:.85rem;color:var(--ink-soft);background:#fff;border-left:3px solid var(--gold);padding:14px 18px;border-radius:0 4px 4px 0;margin-bottom:34px;max-width:720px}
+  .menu-group{margin-bottom:44px}
+  .menu-group>h3{font-size:1.35rem;margin-bottom:6px;color:var(--basil-deep)}
+  .menu-group>.group-sub{font-size:.85rem;color:var(--ink-soft);font-style:italic;margin-bottom:18px;max-width:640px}
+  .items{display:grid;grid-template-columns:1fr 1fr;gap:10px 48px}
+  .item{padding:12px 0;border-bottom:1px dashed var(--line)}
+  .item-line{display:flex;align-items:baseline;gap:10px}
+  .item-name{font-weight:500;font-size:.98rem}
+  .item-dots{flex:1;border-bottom:1px dotted #c9bfa9;transform:translateY(-4px)}
+  .item-price{font-weight:600;color:var(--tomato);font-size:.95rem;white-space:nowrap}
+  .item-desc{font-size:.85rem;color:var(--ink-soft);margin-top:3px}
+
+  /* Visit */
+  .visit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+  .visit-card{background:#fff;border:1px solid var(--line);border-radius:4px;padding:30px}
+  .visit-card h3{font-size:1.05rem;margin-bottom:14px;letter-spacing:.02em}
+  .visit-card h3::after{content:"";display:block;width:28px;height:2px;background:var(--tomato);margin-top:10px}
+  .visit-card p{font-size:.95rem;color:var(--ink-soft)}
+  .visit-card a{color:var(--basil);font-weight:500;border-bottom:1px solid var(--gold)}
+  .visit-card a:hover{color:var(--tomato)}
+  .hours-row{display:flex;justify-content:space-between;font-size:.95rem;padding:6px 0;border-bottom:1px dashed var(--line)}
+  .hours-row:last-child{border:none}
+  .fineprint{font-size:.8rem;color:var(--ink-soft);margin-top:12px;font-style:italic}
+
+  /* Reserve band */
+  .reserve{background:linear-gradient(120deg,var(--basil-deep),var(--basil));color:#fff;text-align:center;padding:80px 24px}
+  .reserve h2{font-size:clamp(1.8rem,3.5vw,2.6rem);margin-bottom:14px}
+  .reserve p{color:rgba(255,255,255,.8);max-width:520px;margin:0 auto 30px}
+  .reserve .btn-gold{background:var(--gold);color:var(--ink)}
+  .reserve .btn-gold:hover{background:#d9b878}
+
+  footer{background:#161310;color:rgba(255,255,255,.65);padding:44px 24px;text-align:center;font-size:.85rem}
+  footer .brand{color:#fff;margin-bottom:10px;font-size:1rem}
+  footer .flag{display:inline-flex;height:2px;width:70px;margin:16px 0;border-radius:2px;overflow:hidden}
+  footer .flag i{flex:1}
+  footer .flag i:nth-child(1){background:#3e7a3a}footer .flag i:nth-child(2){background:#f5f1e8}footer .flag i:nth-child(3){background:#c33b2a}
+
+  @media(max-width:860px){
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:24px;gap:18px;border-bottom:1px solid var(--line)}
+    .nav-links.open{display:flex}
+    .menu-toggle{display:block}
+    .story-grid{grid-template-columns:1fr;gap:40px}
+    .items{grid-template-columns:1fr}
+    .visit-grid{grid-template-columns:1fr}
+    section{padding:72px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="brand">Pizzeria <span>Paradiso</span><small>Da Toni &middot; Te Anau</small></a>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+    <div class="nav-links">
+      <a href="#story">Our Story</a>
+      <a href="#menu">Menu</a>
+      <a href="#visit">Visit</a>
+      <a href="tel:+6432494305" class="btn btn-red">Book &middot; 03 249 4305</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <p class="hero-kicker">Authentic Italian &middot; Wood-Fired &middot; Since 2011</p>
+  <h1>Ristorante Pizzeria <em>Paradiso</em></h1>
+  <p class="hero-sub">Genuine Italian wood-fired pizza in the heart of Te Anau, Fiordland. Organic ingredients, local produce, and a family welcome — formerly Da Toni.</p>
+  <div class="hero-ctas">
+    <a href="#menu" class="btn btn-red">View the Menu</a>
+    <a href="tel:+6432494305" class="btn btn-ghost">Make a Reservation</a>
+  </div>
+  <div class="hero-flag" aria-hidden="true"><i></i><i></i><i></i></div>
+</header>
+
+<section id="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div>
+        <p class="kicker">Our Story</p>
+        <h2 class="section-title">Passion, family &amp; a genuine wood-fired oven</h2>
+        <p class="lead">Ristorante Pizzeria Paradiso (formerly Da Toni) celebrates a culture of passion, enthusiasm and attention to detail. We strive to use organic ingredients and source local produce where possible, holding ourselves accountable — as a family and as a business — to sustainable practices, while constantly delivering a superior dining experience.</p>
+        <div class="since"><b>2011</b><span>An outlet for our creativity,<br>true to the authentic Italian experience</span></div>
+        <p class="lead" style="font-size:.95rem">Paradiso is proud to employ multicultural chefs. Combined with our family and local staff, we've found the perfect balance of authenticity, connection with Fiordland, and our personal touch.</p>
+      </div>
+      <div class="story-cards">
+        <div class="story-card">
+          <h3>Genuine Atmosphere</h3>
+          <p>The centrepiece of our restaurant is our genuine Italian wood-fired pizza oven. We've made it part of the atmosphere — our guests love watching the chefs at work.</p>
+        </div>
+        <div class="story-card">
+          <h3>Your Hosts, Finn &amp; Sarah</h3>
+          <p>Finn and Sarah have a long tradition of serving visitors in Fiordland, enjoying a farm lifestyle on the outskirts of Te Anau, inspired by the views of Lake Te Anau, the Murchison Mountains and Fiordland National Park. After hours you'll find them out with their horses — and the whole family here on a busy night.</p>
+        </div>
+        <div class="story-card">
+          <h3>Local &amp; Sustainable</h3>
+          <p>Organic ingredients where we can, local produce where possible — from Stewart Island salmon to fresh Fiordland venison.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <p class="kicker">The Menu</p>
+    <h2 class="section-title">Authentic Italian cuisine</h2>
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-panel="p-starters">Starters &amp; Salads</button>
+      <button class="tab" data-panel="p-pizzas">Pizzas</button>
+      <button class="tab" data-panel="p-mains">Kitchen Mains</button>
+      <button class="tab" data-panel="p-desserts">Desserts</button>
+      <button class="tab" data-panel="p-drinks">Drinks</button>
+    </div>
+
+    <!-- STARTERS & SALADS -->
+    <div class="panel active" id="p-starters">
+      <div class="menu-group">
+        <h3>Starters</h3>
+        <div class="items">
+          <div class="item"><div class="item-line"><span class="item-name">Pizza Bread</span><span class="item-dots"></span><span class="item-price">$10.00</span></div><p class="item-desc">Pizza bread with garlic, fresh rosemary, extra virgin olive oil and sea salt.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Mini Ciabatta Garlic Loaf</span><span class="item-dots"></span><span class="item-price">$11.50</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Bruschetta</span><span class="item-dots"></span><span class="item-price">$14.00</span></div><p class="item-desc">Tomato, red onion, capers and extra virgin olive oil on ciabatta (2 pieces).</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Olives</span><span class="item-dots"></span><span class="item-price">$15.00</span></div><p class="item-desc">Selection of olives and grilled ciabatta with balsamic glaze and virgin oil.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Caprese</span><span class="item-dots"></span><span class="item-price">$18.50</span></div><p class="item-desc">Buffalo mozzarella, rocket, tomato and basil.</p></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <h3>Salads</h3>
+        <div class="items">
+          <div class="item"><div class="item-line"><span class="item-name">Mixed Green Salad (Giardino Insalata)</span><span class="item-dots"></span><span class="item-price">$9.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Rocket, Pear &amp; Pecorino</span><span class="item-dots"></span><span class="item-price">$12.00</span></div><p class="item-desc">With balsamic glaze.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Mediterranean Salad</span><span class="item-dots"></span><span class="item-price">$16.00</span></div><p class="item-desc">Black olives, tomatoes, cucumber and feta.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Della Casa</span><span class="item-dots"></span><span class="item-price">$22.00</span></div><p class="item-desc">Salad greens, fresh beetroot, carrot, snow pea shoots, tomato, feta, walnuts, cranberries, balsamic vinaigrette. Add salmon $12.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PIZZAS -->
+    <div class="panel" id="p-pizzas">
+      <p class="menu-note">Gluten-free bases available ($4 extra) — our dough uses a slow maturation that consumes the gluten and is easier to digest; for coeliacs we recommend the Allergywise base. Dairy-free cheese available ($3 extra). Ingredients can be added to any pizza at extra cost.</p>
+      <div class="menu-group">
+        <h3>Originals</h3>
+        <p class="group-sub">Tried and tested by over a decade of customers, family and friends — they've stood the test of time, a pandemic, and proven worthy of their place.</p>
+        <div class="items">
+          <div class="item"><div class="item-line"><span class="item-name">Margherita</span><span class="item-dots"></span><span class="item-price">$23.00</span></div><p class="item-desc">Tomato base, mozzarella.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Napoletana Margherita</span><span class="item-dots"></span><span class="item-price">$30.00</span></div><p class="item-desc">The original Margherita — tomato base, basil, mozzarella and buffalo mozzarella.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Quattro Formaggi</span><span class="item-dots"></span><span class="item-price">$28.00</span></div><p class="item-desc">Tomato base, mozzarella, brie, blue cheese and parmesan.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Salami Cipolla</span><span class="item-dots"></span><span class="item-price">$28.00</span></div><p class="item-desc">Tomato base, salami and red onion.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Prosciutto e Funghi</span><span class="item-dots"></span><span class="item-price">$28.00</span></div><p class="item-desc">Tomato base, mozzarella, ham and field mushroom.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Quattro Stagioni</span><span class="item-dots"></span><span class="item-price">$28.00</span></div><p class="item-desc">Tomato base, mozzarella, then four quarters for the four seasons: ham, artichoke hearts, kalamata olives &amp; field mushroom.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Calzone</span><span class="item-dots"></span><span class="item-price">$28.00</span></div><p class="item-desc">Mozzarella, ham and field mushroom in a folded pizza, served with fresh roma sauce and extra virgin olive oil.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Napoli</span><span class="item-dots"></span><span class="item-price">$30.00</span></div><p class="item-desc">Tomato base, mozzarella, anchovies, olives and capers.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Grecian</span><span class="item-dots"></span><span class="item-price">$28.00</span></div><p class="item-desc">Tomato base, olives, fresh tomato, feta and fresh oregano.</p></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <h3>Plant-Based</h3>
+        <p class="group-sub">We use premium Green Vie vegan cheese for innovative, fresh plant-based options. These pizzas can be made with dairy cheese if preferred.</p>
+        <div class="items">
+          <div class="item"><div class="item-line"><span class="item-name">Ginita</span><span class="item-dots"></span><span class="item-price">$29.00</span></div><p class="item-desc">Pea puree, garlic-infused olive oil, zucchini, tree nut ricotta, parmesan, lemon and fresh oregano.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Verde</span><span class="item-dots"></span><span class="item-price">$29.00</span></div><p class="item-desc">Pea puree, garlic-infused olive oil, baby spinach, parmesan, artichoke, zucchini, broccolini, sea salt and chilli.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Autunno</span><span class="item-dots"></span><span class="item-price">$30.00</span></div><p class="item-desc">Tomato base, broccolini, field mushroom, caramelised onion, roasted garlic, rocket, tree nut ricotta and parmesan.</p></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <h3>Essentials</h3>
+        <p class="group-sub">Kiwi classics — familiar and loved by the family.</p>
+        <div class="items">
+          <div class="item"><div class="item-line"><span class="item-name">Carnivore</span><span class="item-dots"></span><span class="item-price">$30.00</span></div><p class="item-desc">Tomato base, mozzarella, ham, salami, smoked chicken and BBQ sauce.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Hawaiian</span><span class="item-dots"></span><span class="item-price">$28.00</span></div><p class="item-desc">Tomato base, mozzarella, ham and fresh pineapple.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Chicken Cranberry</span><span class="item-dots"></span><span class="item-price">$29.00</span></div><p class="item-desc">Cranberry sauce, mozzarella, smoked chicken breast, brie and fresh rosemary.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">BBQ Chicken</span><span class="item-dots"></span><span class="item-price">$29.00</span></div><p class="item-desc">Tomato base, mozzarella, smoked chicken breast, roasted red capsicum, red onion and BBQ sauce.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Spicy Chook</span><span class="item-dots"></span><span class="item-price">$31.00</span></div><p class="item-desc">Tomato sauce, mozzarella, smoked chicken breast, field mushroom, red onion, roasted red capsicum, roasted garlic, jalapeño peppers, garlic shoots and oregano.</p></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <h3>Home</h3>
+        <p class="group-sub">Flavours inspired by the places and people we love — from the produce at our back door to the customer who comes week after week for the same pizza.</p>
+        <div class="items">
+          <div class="item"><div class="item-line"><span class="item-name">Venison</span><span class="item-dots"></span><span class="item-price">$35.00</span></div><p class="item-desc">Tomato base, mozzarella, fresh seasoned venison, caramelised onion, rocket and parmesan.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Smoked Salmon</span><span class="item-dots"></span><span class="item-price">$35.00</span></div><p class="item-desc">Tomato base, mozzarella, baby spinach, smoked Stewart Island salmon, field mushroom, capers and roasted garlic.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Florian</span><span class="item-dots"></span><span class="item-price">$35.00</span></div><p class="item-desc">Tomato base, mozzarella, baby spinach, leg ham, salami, field mushroom, artichoke hearts, blue cheese and roasted garlic.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Paradiso</span><span class="item-dots"></span><span class="item-price">$28.00</span></div><p class="item-desc">Tomato base, mozzarella, walnuts, field mushroom and rocket.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Doppio Aglio con Funghi</span><span class="item-dots"></span><span class="item-price">$28.00</span></div><p class="item-desc">Tomato base, mozzarella, field mushroom, roasted garlic, garlic shoots and blue cheese.</p></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <h3>Bambino Pizzas</h3>
+        <p class="group-sub">For children 14 years old and under.</p>
+        <div class="items">
+          <div class="item"><div class="item-line"><span class="item-name">Mini Pizza Margherita</span><span class="item-dots"></span><span class="item-price">$11.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Prosciutto</span><span class="item-dots"></span><span class="item-price">$14.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Salami</span><span class="item-dots"></span><span class="item-price">$14.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">BBQ Chicken</span><span class="item-dots"></span><span class="item-price">$14.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Hawaiian</span><span class="item-dots"></span><span class="item-price">$14.00</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAINS -->
+    <div class="panel" id="p-mains">
+      <div class="menu-group">
+        <h3>Kitchen Mains</h3>
+        <div class="items">
+          <div class="item"><div class="item-line"><span class="item-name">Pork and Venison Lasagna</span><span class="item-dots"></span><span class="item-price">$28.00</span></div><p class="item-desc">Layers of rich venison, pork, and béchamel served with roma sauce.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Della Casa (Salad)</span><span class="item-dots"></span><span class="item-price">$22.00</span></div><p class="item-desc">Salad greens, fresh beetroot, carrot, snow pea shoots, tomato, feta, walnuts, cranberries, with a balsamic vinaigrette. Add salmon $12.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESSERTS -->
+    <div class="panel" id="p-desserts">
+      <div class="menu-group">
+        <h3>Desserts</h3>
+        <div class="items">
+          <div class="item"><div class="item-line"><span class="item-name">Deep South Vanilla or Hokey Pokey Ice Cream</span><span class="item-dots"></span><span class="item-price">$9.50</span></div><p class="item-desc">With warm chocolate sauce and nuts — or berry coulis.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Crème Brûlée (GF)</span><span class="item-dots"></span><span class="item-price">$14.00</span></div><p class="item-desc">Baked cream custard, stolen from the French because it's so good. Made with free range eggs.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Salted Caramel Panna Cotta</span><span class="item-dots"></span><span class="item-price">$14.00</span></div><p class="item-desc">With candied pistachios and caramel sauce.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Tiramisu</span><span class="item-dots"></span><span class="item-price">$16.00</span></div><p class="item-desc">Mascarpone, marsala, coffee, rum, amaretto and free range eggs.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Torta Rich Chocolate</span><span class="item-dots"></span><span class="item-price">$16.00</span></div><p class="item-desc">With berry coulis, vanilla ice cream &amp; chocolate drizzle.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Torta Citron (GF)</span><span class="item-dots"></span><span class="item-price">$16.00</span></div><p class="item-desc">Zesty lemon and orange made with ground almonds, with berry coulis and vanilla ice cream.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Affogato al Caffè (GF)</span><span class="item-dots"></span><span class="item-price">$18.00</span></div><p class="item-desc">Vanilla ice cream, espresso and Kahlúa for you to assemble.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Sticky Date Toffee Pudding (Plant-Based)</span><span class="item-dots"></span><span class="item-price">$18.00</span></div><p class="item-desc">With a cashew caramel sauce and plant-based gelato.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Gelato (GF), Ice Cream or Sorbet (DF &amp; Vegan) — Small</span><span class="item-dots"></span><span class="item-price">$6.00</span></div><p class="item-desc">From the Gelato Cart: cone or cup.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Gelato (GF), Ice Cream or Sorbet (DF &amp; Vegan) — Large</span><span class="item-dots"></span><span class="item-price">$8.00</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DRINKS -->
+    <div class="panel" id="p-drinks">
+      <div class="menu-group">
+        <h3>Cocktails, Aperitifs &amp; Liqueurs</h3>
+        <div class="items">
+          <div class="item"><div class="item-line"><span class="item-name">Aperol Spritz</span><span class="item-dots"></span><span class="item-price">$20.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Negroni</span><span class="item-dots"></span><span class="item-price">$20.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Espresso Martini</span><span class="item-dots"></span><span class="item-price">$18.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Amaro: Aperitivo / Digestivo</span><span class="item-dots"></span><span class="item-price">$12.00</span></div><p class="item-desc">Averna / Montenegro / Cynar / Campari.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Mazurans Directors Port</span><span class="item-dots"></span><span class="item-price">$16.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Grappa</span><span class="item-dots"></span><span class="item-price">$14.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Amaretto / Limoncello / Frangelico / Baileys / Cointreau</span><span class="item-dots"></span><span class="item-price">$12.00</span></div></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <h3>Spirits <span style="font-family:'Inter';font-size:.75rem;color:var(--ink-soft);font-weight:400">(double shots)</span></h3>
+        <div class="items">
+          <div class="item"><div class="item-line"><span class="item-name">Jim Beam / Coruba Rum / Grants / Jamesons / Bacardi / Absolut Vodka</span><span class="item-dots"></span><span class="item-price">$10.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Appleton Estate Rum / Wild Turkey Rye / Jack Daniels / Drambuie</span><span class="item-dots"></span><span class="item-price">$12.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Larios Mediterranea Gin</span><span class="item-dots"></span><span class="item-price">$13.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">The Glenlivet Illicit Still (Malt Whisky) / Malfy Rosso Gin (Pink Grapefruit)</span><span class="item-dots"></span><span class="item-price">$14.00</span></div></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <h3>Beers &amp; Cider</h3>
+        <div class="items">
+          <div class="item"><div class="item-line"><span class="item-name">Peroni on Tap — 40cl / 20cl</span><span class="item-dots"></span><span class="item-price">$13.00 / $8.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Scotts Harbourmaster IPA 33cl</span><span class="item-dots"></span><span class="item-price">$11.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Panhead Rat Rod Hazy IPA 33cl</span><span class="item-dots"></span><span class="item-price">$12.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Asahi Super Dry 33cl</span><span class="item-dots"></span><span class="item-price">$9.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Emersons Pilsner 33cl</span><span class="item-dots"></span><span class="item-price">$12.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Caswells Milk Stout 32.8cl</span><span class="item-dots"></span><span class="item-price">$12.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Speights 33cl</span><span class="item-dots"></span><span class="item-price">$8.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Macs Apple Cider 33cl</span><span class="item-dots"></span><span class="item-price">$10.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Heineken 0.0 (non-alcoholic) 33cl</span><span class="item-dots"></span><span class="item-price">$7.00</span></div></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <h3>Wines</h3>
+        <div class="items">
+          <div class="item"><div class="item-line"><span class="item-name">Prosecco (Italy) — glass / bottle</span><span class="item-dots"></span><span class="item-price">$15.00 / $45.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Sangria 33cl / Peach Bomb 33cl</span><span class="item-dots"></span><span class="item-price">$18.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Montepulciano (red) — 50cl / carafe / 1L carafe</span><span class="item-dots"></span><span class="item-price">$10 / $25 / $45</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Sauvignon Blanc — 50cl / carafe / 1L carafe</span><span class="item-dots"></span><span class="item-price">$12 / $28 / $50</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Babich Chardonnay — glass / bottle</span><span class="item-dots"></span><span class="item-price">$15.00 / $50.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Peregrine Rastasburn Riesling — glass / bottle</span><span class="item-dots"></span><span class="item-price">$15.00 / $50.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Giunta Pinot Gris — glass / bottle</span><span class="item-dots"></span><span class="item-price">$15.00 / $50.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Seresin Sauvignon Blanc (Certified Organic, Marlborough)</span><span class="item-dots"></span><span class="item-price">$50.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Seresin Pinot Gris</span><span class="item-dots"></span><span class="item-price">$55.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Te Mata Elston Chardonnay</span><span class="item-dots"></span><span class="item-price">$80.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Saddleback Pinot Noir — 50cl / bottle</span><span class="item-dots"></span><span class="item-price">$15.00 / $40.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Te Mata Estates Syrah 2020 — glass / bottle</span><span class="item-dots"></span><span class="item-price">$16.00 / $55.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Peregrine Saddleback Rosé — glass / bottle</span><span class="item-dots"></span><span class="item-price">$15.00 / $50.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Felton Road Bannockburn Pinot Noir 2020</span><span class="item-dots"></span><span class="item-price">$140.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Mt Edwards Pinot Noir</span><span class="item-dots"></span><span class="item-price">$85.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Te Mata Coleraine 2018</span><span class="item-dots"></span><span class="item-price">$220.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Stone Paddock Merlot / Te Mata Estates Gamay Noir</span><span class="item-dots"></span><span class="item-price">$55.00</span></div></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <h3>Non-Alcoholic &amp; Coffee</h3>
+        <p class="group-sub">We proudly serve Segafredo coffee.</p>
+        <div class="items">
+          <div class="item"><div class="item-line"><span class="item-name">Juices — Orange</span><span class="item-dots"></span><span class="item-price">$8.00</span></div><p class="item-desc">Pineapple, apple, pomegranate or iced tea $6.00.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Sparkling Elderflower</span><span class="item-dots"></span><span class="item-price">$6.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Tomarchio Blood Orange / Limonata</span><span class="item-dots"></span><span class="item-price">$9.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Macs Ginger Beer</span><span class="item-dots"></span><span class="item-price">$8.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Coke / Coke Zero / Sprite / Lemon &amp; Paeroa</span><span class="item-dots"></span><span class="item-price">$5.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Lemon Lime &amp; Bitters</span><span class="item-dots"></span><span class="item-price">$6.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Ārepa (NZ-made blackcurrant brain drink)</span><span class="item-dots"></span><span class="item-price">$10.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">San Pellegrino Sparkling Water 50cl</span><span class="item-dots"></span><span class="item-price">$10.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Espresso</span><span class="item-dots"></span><span class="item-price">$8.00</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Latte / Cappuccino / Mocha / Flat White / Long Black / Macchiato</span><span class="item-dots"></span><span class="item-price">$6.00</span></div><p class="item-desc">Oat milk +$1.00.</p></div>
+          <div class="item"><div class="item-line"><span class="item-name">Koko Premium Drinking Cocoa</span><span class="item-dots"></span><span class="item-price">$8.50</span></div></div>
+          <div class="item"><div class="item-line"><span class="item-name">Hot Blackcurrant</span><span class="item-dots"></span><span class="item-price">$7.00</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <p class="kicker">Find Us</p>
+    <h2 class="section-title">Visit Paradiso</h2>
+    <p class="lead">In the heart of Te Anau, gateway to Fiordland National Park.</p>
+    <div class="visit-grid">
+      <div class="visit-card">
+        <h3>Location</h3>
+        <p>1 Milford Crescent<br>Te Anau, New Zealand</p>
+        <p style="margin-top:14px"><a href="https://maps.google.com/?q=1+Milford+Crescent,+Te+Anau,+New+Zealand" target="_blank" rel="noopener">Open in Google Maps</a></p>
+      </div>
+      <div class="visit-card">
+        <h3>Opening Hours</h3>
+        <div class="hours-row"><span>Monday – Friday</span><span>12pm – 7pm</span></div>
+        <p class="fineprint">Hours may vary seasonally — give us a ring to confirm.</p>
+      </div>
+      <div class="visit-card">
+        <h3>Contact</h3>
+        <p>Phone: <a href="tel:+6432494305">03 249 4305</a></p>
+        <p style="margin-top:10px">Email: <a href="mailto:info@paradisopizzeria.co.nz">info@paradisopizzeria.co.nz</a></p>
+        <p class="fineprint">We would love to hear from you!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="reserve" id="reserve">
+  <h2>Make a Reservation</h2>
+  <p>Book a table beside our genuine Italian wood-fired oven — we know how much our guests enjoy watching the chefs at work.</p>
+  <a href="tel:+6432494305" class="btn btn-gold">Call 03 249 4305</a>
+</div>
+
+<footer>
+  <div class="brand">Ristorante Pizzeria <span style="color:var(--tomato)">Paradiso</span></div>
+  <div class="flag"><i></i><i></i><i></i></div>
+  <p>Formerly Da Toni &middot; Since 2011 &middot; 1 Milford Crescent, Te Anau, Fiordland</p>
+  <p style="margin-top:6px">&copy; <span id="yr"></span> Ristorante Pizzeria Paradiso. All rights reserved.</p>
+</footer>
+
+<script>
+  // Menu tabs
+  document.querySelectorAll('.tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+      document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active')});
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.panel).classList.add('active');
+    });
+  });
+  // Close mobile nav on link click
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.addEventListener('click', function(){document.querySelector('.nav-links').classList.remove('open')});
+  });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
