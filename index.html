@@ -116,6 +116,8 @@
   .reserve p{color:rgba(255,255,255,.8);max-width:520px;margin:0 auto 30px}
   .reserve .btn-gold{background:var(--gold);color:var(--ink)}
   .reserve .btn-gold:hover{background:#d9b878}
+  .reserve-widget{max-width:760px;margin:0 auto;background:#fff;border-radius:6px;box-shadow:0 18px 50px rgba(0,0,0,.25);overflow:hidden;text-align:left;min-height:420px}
+  .reserve-widget iframe{display:block;width:100%;border:0}
 
   footer{background:#161310;color:rgba(255,255,255,.65);padding:44px 24px;text-align:center;font-size:.85rem}
   footer .brand{color:#fff;margin-bottom:10px;font-size:1rem}
@@ -155,7 +157,7 @@
   <p class="hero-sub">Genuine Italian wood-fired pizza in the heart of Te Anau, Fiordland. Organic ingredients, local produce, and a family welcome.</p>
   <div class="hero-ctas">
     <a href="#menu" class="btn btn-red">View the Menu</a>
-    <a href="https://www.restauranthub.co.nz/rh2/eats/in-region/southland-region/in-city/southland-district/in-suburb/te-anau/ristorante-pizzeria-paradiso/" target="_blank" rel="noopener" class="btn btn-ghost">Book a Table Online</a>
+    <a href="#reserve" class="btn btn-ghost">Book a Table Online</a>
   </div>
   <div class="hero-flag" aria-hidden="true"><i></i><i></i><i></i></div>
 </header>
@@ -389,8 +391,12 @@
 <div class="reserve" id="reserve">
   <h2>Make a Reservation</h2>
   <p>Book a table beside our genuine Italian wood-fired oven — we know how much our guests enjoy watching the chefs at work.</p>
-  <a href="https://www.restauranthub.co.nz/rh2/eats/in-region/southland-region/in-city/southland-district/in-suburb/te-anau/ristorante-pizzeria-paradiso/" target="_blank" rel="noopener" class="btn btn-gold">Book Online</a>
-  <p style="margin-top:16px;font-size:.9rem;color:rgba(255,255,255,.75)">or call us on <a href="tel:+6432494305" style="color:#fff;border-bottom:1px solid var(--gold)">03 249 4305</a></p>
+  <div class="reserve-widget">
+    <div data-tablebuzz-widget data-restaurant-id="0f66ecdc-d628-4e79-ba67-a5150ae0f506"></div>
+    <noscript><p style="padding:32px;text-align:center"><a href="https://book.tablebuzz.com/reservations?restaurantId=0f66ecdc-d628-4e79-ba67-a5150ae0f506" target="_blank" rel="noopener" class="btn btn-gold">Book Online</a></p></noscript>
+  </div>
+  <script src="https://book.tablebuzz.com/embed.js" async></script>
+  <p style="margin-top:24px;font-size:.9rem;color:rgba(255,255,255,.75)">or call us on <a href="tel:+6432494305" style="color:#fff;border-bottom:1px solid var(--gold)">03 249 4305</a></p>
 </div>
 
 <footer>
